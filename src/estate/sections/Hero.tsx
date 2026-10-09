@@ -34,7 +34,7 @@ export function Hero() {
     <section id="top" className="dark-surface relative isolate flex min-h-dvh flex-col overflow-hidden bg-charcoal text-warm-white">
       {/* The walkthrough. Own chrome below, so the caption and progress never collide with the CTAs. */}
       <div ref={seqRef} className="absolute inset-0 -z-20">
-        <VideoSequence scenes={estateScenes} maxSeconds={SCENE_SECONDS} zoomTo={1.08} chrome={false} onScene={onScene} className="h-full w-full" />
+        <VideoSequence scenes={estateScenes} maxSeconds={SCENE_SECONDS} zoomTo={1} chrome={false} onScene={onScene} className="h-full w-full" />
       </div>
 
       {/* Legibility over every room: charcoal from the bottom and the left, a veil up top for the header.

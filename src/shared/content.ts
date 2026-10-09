@@ -3,7 +3,14 @@
 // Rule: no em dashes anywhere in client-facing copy.
 
 export const BASE = import.meta.env.BASE_URL;
-export const asset = (path: string) => `${BASE}${path.replace(/^\//, "")}`;
+// Media files keep their names between deploys, so bump this whenever a clip or photo changes.
+// GitHub Pages caches for 10 minutes and browsers happily serve the old clip inside that window.
+export const MEDIA_VERSION = "2026-10-09c";
+export const asset = (path: string) => {
+  const clean = path.replace(/^\//, "");
+  const url = `${BASE}${clean}`;
+  return clean.startsWith("media/") ? `${url}?v=${MEDIA_VERSION}` : url;
+};
 
 export const brand = {
   name: "Property Mill",

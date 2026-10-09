@@ -154,7 +154,7 @@ export function VideoSequence({
             className="absolute inset-0"
             initial={false}
             animate={{ opacity: active ? 1 : 0 }}
-            transition={{ duration: reduce ? 0.3 : 1.1, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: reduce ? 0.3 : 1.0, ease: [0.4, 0, 0.2, 1] }}
             style={{ zIndex: active ? 2 : 1, pointerEvents: "none" }}
             aria-hidden={!active}
           >
@@ -162,7 +162,7 @@ export function VideoSequence({
               ref={(el) => {
                 zoomRefs.current[i] = el;
               }}
-              className="absolute inset-0 will-change-transform"
+              className={`absolute inset-0 ${zoomTo !== 1 ? "will-change-transform" : ""}`}
               style={{ transformOrigin: "50% 50%" }}
             >
               {reduce ? (
