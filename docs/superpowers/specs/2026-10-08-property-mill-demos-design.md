@@ -62,6 +62,15 @@ Sections every demo must cover, in this order unless the concept calls for a swa
 - Motion: SVG windmill with slowly rotating blades in the hero, stacked rounded photo cards with Ken Burns, chips that spring in, bento tiles that tilt toward the cursor, animated fixed-rate badge, step counter that fills as you scroll.
 - Feel: energetic, friendly, unmistakably Property Mill (the windmill is Hans's Dutch nod).
 
+
+### 4. Estate (`/estate/`)  one luxury home, walked through on camera (added 2026-10-08 night at Dan's request)
+
+- Palette: charcoal `#15171C`, warm white `#F6F2EB`, stone `#E9E3D8`, brass `#B8935A`, ink `#1B1D22`, muted `#6B6760`.
+- Type: Cormorant Garamond headings (light and regular, large, italic emphasis), Jost body.
+- Hero: full-viewport `VideoSequence` of six Pexels clips (approach, great room, kitchen, hearth, primary suite, Front Range view) with crossfades, a slow push-in, story-style progress segments and a room caption. Headline and CTAs sit over it.
+- Feel: a luxury listing brochure. Thin serifs, brass hairlines, big photography, lots of quiet.
+- Dan's words: "a very nice home, Colorado, from like Monument or Boulder, very nice home on the front, and the cameras kind of going in and showing the front room, the most amazing kitchen in the world, going through this awesome house as his hero."
+
 ## Root chooser (`/`)
 
 A small page for Dan to share: Property Mill logo, "Three design directions", three cards with a screenshot, name, one-line mood and an Open button. Footer notes these are design demos by FuseHQ.

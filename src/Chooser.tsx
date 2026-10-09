@@ -25,6 +25,13 @@ const concepts = [
     palette: ["#FFFFFF", "#1428D2", "#F26A1B", "#0B1020"],
     shot: asset("shots/windmill.jpg"),
   },
+  {
+    slug: "estate",
+    name: "Estate",
+    mood: "One beautiful home, walked through on camera. Thin serifs, brass details, listing-brochure calm.",
+    palette: ["#F6F2EB", "#15171C", "#B8935A", "#E9E3D8"],
+    shot: asset("shots/estate.jpg"),
+  },
 ];
 
 export function Chooser() {
@@ -36,10 +43,10 @@ export function Chooser() {
           Website design concepts
         </motion.p>
         <motion.h1 variants={fadeUp} className="font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
-          Three directions for the new Property Mill website.
+          Four directions for the new Property Mill website.
         </motion.h1>
         <motion.p variants={fadeUp} className="max-w-2xl text-lg text-ink/75">
-          Same words, same team, same phone number. Three different feelings. Open each one, scroll all the way down, and tell us which
+          Same words, same team, same phone number. Four different feelings. Open each one, scroll all the way down, and tell us which
           one feels like Property Mill. Everything here is a design demo: the forms do not send yet, and the photos are placeholders we
           will swap for your own.
         </motion.p>
@@ -49,7 +56,7 @@ export function Chooser() {
         variants={stagger(0.12, 0.3)}
         initial="hidden"
         animate="show"
-        className="mt-12 grid gap-6 md:grid-cols-3"
+        className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4"
         aria-label="Design concepts"
       >
         {concepts.map((c, i) => (

@@ -13,7 +13,7 @@ Everything a visitor reads on these pages came from propertymill.com (approved b
 
 ## Placeholder or missing
 
-- Photos: Colorado Springs landscape photos are Creative Commons from Wikimedia Commons (credits in `public/media/photo/CREDITS-wikimedia.txt`, attribution needed if kept). Home and interior photos are the stock images already licensed on propertymill.com. Video clips are free Mixkit clips, not Colorado. Real listings, office and team photos should replace all of them.
+- Photos: Colorado Springs landscape photos are Creative Commons from Wikimedia Commons (credits in `public/media/photo/CREDITS-wikimedia.txt`, attribution needed if kept). Home and interior photos are the stock images already licensed on propertymill.com. Video clips are free Mixkit clips, not Colorado. The Estate concept's house walkthrough is six free Pexels clips of several different homes (only the closing mountain view is Colorado), stitched to read as one house. Real listings, office and team photos should replace all of them.
 - No headshots. Hans and the agents appear as initials. Real headshots wanted.
 - Contact forms do not send. On submit they show a note. The real build wires them to email or the CRM.
 - "Available properties" links to the current AppFolio page on propertymill.com.

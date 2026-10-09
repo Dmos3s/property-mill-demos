@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Build one entry, serve it, and take verification screenshots with headless Chromium.
-// Usage: node scripts/shoot.mjs <summit|midnight|windmill|main> [--no-build]
+// Usage: node scripts/shoot.mjs <summit|midnight|windmill|estate|main> [--no-build]
 // Output: shots/<entry>-desktop.png (full page, 1440 wide), shots/<entry>-mobile.png (390 wide),
 //         shots/<entry>-hero.png (first viewport), and a console/page error report on stdout.
 import { build, preview } from "vite";
@@ -10,12 +10,12 @@ import { resolve } from "node:path";
 
 const entry = process.argv[2];
 const skipBuild = process.argv.includes("--no-build");
-const valid = ["summit", "midnight", "windmill", "main"];
+const valid = ["summit", "midnight", "windmill", "estate", "main"];
 if (!valid.includes(entry)) {
   console.error(`usage: node scripts/shoot.mjs <${valid.join("|")}> [--no-build]`);
   process.exit(2);
 }
-const ports = { main: 4180, summit: 4181, midnight: 4182, windmill: 4183 };
+const ports = { main: 4180, summit: 4181, midnight: 4182, windmill: 4183, estate: 4184 };
 const outDir = resolve(`dist-${entry}`);
 const base = "/property-mill-demos/";
 const path = entry === "main" ? base : `${base}${entry}/`;

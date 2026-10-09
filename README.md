@@ -1,6 +1,6 @@
 # Property Mill demo websites
 
-Three one-page design concepts for Property Mill Real Estate Group (Colorado Springs), prepared by FuseHQ.
+Four one-page design concepts for Property Mill Real Estate Group (Colorado Springs), prepared by FuseHQ.
 
 | Concept | Path | Feel |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Three one-page design concepts for Property Mill Real Estate Group (Colorado Spr
 | Midnight | `/midnight/` | Dark, cinematic, bold type, glowing accents |
 | Windmill | `/windmill/` | Bright brand colors, rounded bento cards, turning windmill |
 
-The root page is a chooser that links to all three.
+The root page is a chooser that links to all four.
 
 Live: https://dmos3s.github.io/property-mill-demos/
 

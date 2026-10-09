@@ -308,3 +308,22 @@ export const media = {
     office2: asset("media/photo/office-2.jpg"),
   },
 };
+
+// Estate concept: a walkthrough of one home, exterior to view. Pexels clips, see public/media/estate/CREDITS-pexels.txt.
+export const estateScenes = [
+  { label: "The approach", src: asset("media/estate/approach.mp4"), poster: asset("media/estate/approach.jpg") },
+  { label: "The great room", src: asset("media/estate/great-room.mp4"), poster: asset("media/estate/great-room.jpg") },
+  { label: "The kitchen", src: asset("media/estate/kitchen.mp4"), poster: asset("media/estate/kitchen.jpg") },
+  { label: "The hearth", src: asset("media/estate/hearth.mp4"), poster: asset("media/estate/hearth.jpg") },
+  { label: "The primary suite", src: asset("media/estate/suite.mp4"), poster: asset("media/estate/suite.jpg") },
+  { label: "The view", src: asset("media/estate/view.mp4"), poster: asset("media/estate/view.jpg") },
+];
+
+export const estateStills = {
+  approach: asset("media/estate/stills/approach.jpg"),
+  greatRoom: asset("media/estate/stills/great-room.jpg"),
+  kitchen: asset("media/estate/stills/kitchen.jpg"),
+  hearth: asset("media/estate/stills/hearth.jpg"),
+  suite: asset("media/estate/stills/suite.jpg"),
+  view: asset("media/estate/stills/view.jpg"),
+};
