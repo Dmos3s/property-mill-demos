@@ -24,6 +24,15 @@ video {
   outline-offset: 3px;
 }
 
+@keyframes pm-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(var(--pm-zoom-to, 1.08));
+  }
+}
+
 @keyframes pm-marquee {
   from {
     transform: translateX(0);

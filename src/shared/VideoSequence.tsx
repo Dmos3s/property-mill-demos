@@ -1,7 +1,7 @@
 // Plays a sequence of short clips as one continuous "walkthrough": crossfades between clips,
 // slow Ken Burns push on each, a segmented progress bar, and a caption per scene.
 // Reduced motion: shows the poster images and advances them on a timer with a plain fade.
-import { AnimatePresence, animate, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 
 export type Scene = {
@@ -71,9 +71,14 @@ export function VideoSequence({
     durationRef.current = planned;
     startedAt.current = performance.now();
 
+    // Slow push-in as a compositor-driven CSS animation (no per-frame JS, no sub-pixel jitter).
+    // Restart it by removing and re-adding the animation; the outgoing scene keeps its last frame.
     const zoomEl = zoomRefs.current[index];
     if (zoomEl && !reduce && zoomTo !== 1) {
-      animate(zoomEl, { scale: [1, zoomTo] }, { duration: planned + 1.6, ease: "linear" });
+      zoomEl.style.animation = "none";
+      void zoomEl.offsetWidth; // flush so the animation restarts from scale(1)
+      zoomEl.style.setProperty("--pm-zoom-to", String(zoomTo));
+      zoomEl.style.animation = `pm-kenburns ${planned + 1.6}s linear forwards`;
     }
 
     const tick = () => {
