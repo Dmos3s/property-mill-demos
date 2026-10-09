@@ -1,7 +1,7 @@
 // Plays a sequence of short clips as one continuous "walkthrough": crossfades between clips,
 // slow Ken Burns push on each, a segmented progress bar, and a caption per scene.
 // Reduced motion: shows the poster images and advances them on a timer with a plain fade.
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, animate, motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 
 export type Scene = {
@@ -43,12 +43,17 @@ export function VideoSequence({
   const reduce = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  // Push-in wrappers: animated imperatively so the <video> elements are never remounted
+  // (a remount throws away the buffered clip and restarts decoding, which shows as a jump).
+  const zoomRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const indexRef = useRef(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const raf = useRef<number | null>(null);
   const startedAt = useRef<number>(0);
   const durationRef = useRef<number>(maxSeconds);
 
   const scene = scenes[index];
+  indexRef.current = index;
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % scenes.length);
@@ -65,6 +70,11 @@ export function VideoSequence({
     const planned = scene.seconds ?? maxSeconds;
     durationRef.current = planned;
     startedAt.current = performance.now();
+
+    const zoomEl = zoomRefs.current[index];
+    if (zoomEl && !reduce && zoomTo !== 1) {
+      animate(zoomEl, { scale: [1, zoomTo] }, { duration: planned + 1.6, ease: "linear" });
+    }
 
     const tick = () => {
       const t = (performance.now() - startedAt.current) / 1000;
@@ -93,8 +103,8 @@ export function VideoSequence({
         v.addEventListener("canplay", tryPlay, { once: true });
         // If the clip is shorter than planned, follow the clip.
         const onMeta = () => {
-          if (v.duration && isFinite(v.duration) && v.duration < planned) {
-            durationRef.current = Math.max(3, v.duration - 0.2);
+          if (v.duration && isFinite(v.duration) && v.duration < planned + 1.2) {
+            durationRef.current = Math.max(3, v.duration - 1.3);
           }
         };
         if (v.readyState >= 1) onMeta();
@@ -102,10 +112,13 @@ export function VideoSequence({
       }
       const n = videoRefs.current[(index + 1) % scenes.length];
       if (n && n.preload !== "auto") n.preload = "auto";
-      // Pause everything else so only one clip decodes at a time.
-      videoRefs.current.forEach((o, i) => {
-        if (o && i !== index && !o.paused) o.pause();
-      });
+      // Let the outgoing clip keep moving through the crossfade, then pause everything else
+      // so only one clip decodes at a time.
+      window.setTimeout(() => {
+        videoRefs.current.forEach((o, i) => {
+          if (o && i !== indexRef.current && !o.paused) o.pause();
+        });
+      }, 1400);
     }
 
     // One advance mechanism only (a timeout plus an interval could both fire and skip a scene).
@@ -123,7 +136,7 @@ export function VideoSequence({
       if (raf.current) window.cancelAnimationFrame(raf.current);
       window.clearInterval(check);
     };
-  }, [index, scene, maxSeconds, next, reduce, scenes.length]);
+  }, [index, scene, maxSeconds, next, reduce, scenes.length, zoomTo]);
 
   return (
     <div className={`overflow-hidden ${className ?? "relative"}`} style={style} aria-label={scene.label}>
@@ -140,12 +153,12 @@ export function VideoSequence({
             style={{ zIndex: active ? 2 : 1, pointerEvents: "none" }}
             aria-hidden={!active}
           >
-            <motion.div
-              className="absolute inset-0"
-              key={`${s.src}-${active ? index : "idle"}`}
-              initial={{ scale: 1 }}
-              animate={{ scale: active && !reduce ? zoomTo : 1 }}
-              transition={{ duration: (s.seconds ?? maxSeconds) + 1.2, ease: "linear" }}
+            <div
+              ref={(el) => {
+                zoomRefs.current[i] = el;
+              }}
+              className="absolute inset-0 will-change-transform"
+              style={{ transformOrigin: "50% 50%" }}
             >
               {reduce ? (
                 <img src={s.poster} alt="" className="h-full w-full object-cover" />
@@ -159,12 +172,11 @@ export function VideoSequence({
                   poster={s.poster}
                   muted
                   playsInline
-                  loop
                   preload={i === 0 ? "auto" : "metadata"}
                   aria-hidden="true"
                 />
               )}
-            </motion.div>
+            </div>
           </motion.div>
         );
       })}

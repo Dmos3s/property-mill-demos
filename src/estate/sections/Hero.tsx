@@ -6,7 +6,7 @@ import { easeOut, WordReveal } from "../../shared/motion";
 import { VideoSequence } from "../../shared/VideoSequence";
 import { btnBrass, btnOutlineLight, container } from "../ui";
 
-const SCENE_SECONDS = 8;
+const SCENE_SECONDS = 7.5; // clips run 9 s, so the outgoing room keeps moving through the 1.1 s crossfade
 const pad = (n: number) => String(n).padStart(2, "0");
 
 export function Hero() {
