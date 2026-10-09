@@ -25,5 +25,5 @@ dist-ssr
 
 # build outputs per entry and QA screenshots
 dist-*
-shots/
+/shots/
 node_modules/.tmp
