@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": { "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.windmill.tsbuildinfo", "composite": false },
+  "include": ["src/windmill", "src/shared", "src/vite-env.d.ts"]
+}

@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "../shared/base.css";
+
+@theme {
+  --color-white: #ffffff;
+  --color-soft: #f2f4fb;
+  --color-ink: #0b1020;
+  --color-muted: #4b5563;
+  --color-line: rgba(11, 16, 32, 0.1);
+  --color-pm-blue: #1428d2;
+  --color-pm-blue-deep: #0e1ca3;
+  --color-pm-orange: #f26a1b;
+  --color-pm-orange-ink: #a8410c;
+  --color-pm-red: #b5121b;
+  --color-sky: #e8ecff;
+
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Only devices with a real mouse get hover-reveal and tilt. */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+
+/* In-page anchors already glide via useSmoothAnchors, so native smooth scrolling stays off
+   (it also keeps programmatic scrolls and full-page captures exact). */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-pm-blue);
+  color: #fff;
+}
+
+/* Anchored sections land below the floating header. */
+[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+/* Slow Ken Burns drift on hero photo cards. */
+@keyframes wm-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+.wm-kenburns {
+  animation: wm-kenburns 18s ease-in-out infinite alternate;
+  transform-origin: 50% 60%;
+}
+
+/* Custom chevron for the contact form select. */
+.wm-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%231428D2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+
+/* Gentle float for hero chips. */
+@keyframes wm-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+.wm-float {
+  animation: wm-float 5s ease-in-out infinite;
+}
+
+/* Rotating fixed-rate badge. */
+@keyframes wm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.wm-spin {
+  animation: wm-spin 26s linear infinite;
+}
