@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "../shared/base.css";
+
+@theme {
+  --color-night: #070b14;
+  --color-panel: #0e1526;
+  --color-panel-2: #121b30;
+  --color-text: #f3f5f9;
+  --color-muted: #98a2b3;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+  --color-electric: #3b6cff;
+  /* Deeper electric for filled buttons: white text holds 5.5:1. */
+  --color-electric-deep: #2b5af0;
+  --color-electric-hover: #3463f5;
+  /* Lighter electric for small text and icons on night/panel: 7:1+. */
+  --color-electric-soft: #7c9bff;
+  --color-amber: #f7931e;
+
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Hover styles only for real pointers, so touch tablets never hide content behind a hover. */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+/* Full bento layout with hover reveals: wide screens with a real pointer. Everything else gets stacked cards. */
+@custom-variant bento (@media (hover: hover) and (pointer: fine) and (min-width: 80rem));
+
+@utility glass {
+  background-color: rgb(255 255 255 / 0.05);
+  border: 1px solid var(--color-line);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+@utility glass-dark {
+  background-color: rgb(7 11 20 / 0.55);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+@utility glow-electric {
+  box-shadow:
+    0 0 0 1px rgb(59 108 255 / 0.55),
+    0 24px 80px -24px rgb(59 108 255 / 0.6),
+    0 0 40px -12px rgb(59 108 255 / 0.45);
+}
+
+
+@layer base {
+  html {
+    background-color: var(--color-night);
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-night);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+  ::selection {
+    background: rgb(59 108 255 / 0.5);
+    color: #fff;
+  }
+}
+
+/* Unlayered on purpose: these must beat the shared base.css rules. */
+/* In-page anchors already glide via useSmoothAnchors; native smooth scrolling only makes
+   programmatic jumps (and the screenshot script) land late. */
+html {
+  scroll-behavior: auto;
+}
+:focus-visible {
+  outline: 2px solid var(--color-electric-soft);
+  outline-offset: 3px;
+}
+[id] {
+  scroll-margin-top: 84px;
+}
+.mn-field:focus-visible {
+  outline: none;
+}
+select.mn-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2398A2B3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 44px;
+}
+select.mn-field option {
+  background: #121b30;
+  color: #f3f5f9;
+}
+
+/* Film grain: inline SVG fractal noise, jittered in steps like real film. */
+.mn-grain {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  animation: mn-grain 0.9s steps(5) infinite;
+}
+@keyframes mn-grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -5%); }
+  60% { transform: translate(-6%, -2%); }
+  80% { transform: translate(5%, 4%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Scroll cue: a light pulse running down a thin line. */
+@keyframes mn-scroll-cue {
+  0% { transform: translateY(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(260%); opacity: 0; }
+}
+.mn-scroll-cue {
+  animation: mn-scroll-cue 2.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes mn-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(247 147 30 / 0.6); }
+  70% { box-shadow: 0 0 0 10px rgb(247 147 30 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(247 147 30 / 0); }
+}
+.mn-pulse {
+  animation: mn-pulse 2.4s ease-out infinite;
+}
+
+/* Reveal and resize transitions switch on at the first real interaction (see App.tsx). A media query that
+   flips with no user present (a window resize, a headless full-page capture) then never leaves a panel
+   frozen mid-fade, while real visitors get every transition. */
+[data-mn-live] .mn-fx {
+  transition-property: opacity, translate, grid-template-rows, height;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mn-no-scrollbar {
+  scrollbar-width: none;
+}
+.mn-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mn-grain,
+  .mn-scroll-cue,
+  .mn-pulse {
+    animation: none;
+  }
+}

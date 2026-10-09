@@ -1,16 +1,11 @@
-gog_pikes.jpg | File:Garden of the Gods, with Pikes Peak in the background.JPG | CaroleHenson | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Garden_of_the_Gods,_with_Pikes_Peak_in_the_background.JPG
-cs_homes_skyline.jpg | File:Colorado Springs Homes and Skyline (54557268120).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs_Homes_and_Skyline_(54557268120).jpg
-cs_skyline.jpg | File:Colorado Springs Skyline (54557268110).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs_Skyline_(54557268110).jpg
-cs_city.jpg | File:Colorado Springs, Colorado.jpg | Quintin Soloviev | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs,_Colorado.jpg
-manitou_pikes.jpg | File:Manitou Spring Public High School and Pikes Peak.jpg | Casey.hofford | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Manitou_Spring_Public_High_School_and_Pikes_Peak.jpg
-occ_homes.jpg | File:Old Colorado City Neighborhood and Homes, Colorado Springs (54557267980).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Old_Colorado_City_Neighborhood_and_Homes,_Colorado_Springs_(54557267980).jpg
-occ_broadway.jpg | File:Broadway Street, Old Colorado City, Colorado Springs (54557115419).jpg | Lumen Wilde | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Broadway_Street,_Old_Colorado_City,_Colorado_Springs_(54557115419).jpg
-monument.jpg | File:2024-04-25 Monument Colorado - 084.jpg | mark byzewski | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:2024-04-25_Monument_Colorado_-_084.jpg
-monument2.jpg | File:2024-04-25 Monument Colorado - 189.jpg | mark byzewski | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:2024-04-25_Monument_Colorado_-_189.jpg
+gog-pikes.jpg | File:Garden of the Gods, with Pikes Peak in the background.JPG | CaroleHenson | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Garden_of_the_Gods,_with_Pikes_Peak_in_the_background.JPG
+cs-homes-skyline.jpg | File:Colorado Springs Homes and Skyline (54557268120).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs_Homes_and_Skyline_(54557268120).jpg
+cs-skyline.jpg | File:Colorado Springs Skyline (54557268110).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs_Skyline_(54557268110).jpg
+cs-city.jpg | File:Colorado Springs, Colorado.jpg | Quintin Soloviev | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Colorado_Springs,_Colorado.jpg
+manitou.jpg | File:Manitou Springs, Colorado (2541038806).jpg | JOHN LLOYD from Concrete, Washington, United States | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Manitou_Springs,_Colorado_(2541038806).jpg
+occ-homes.jpg | File:Old Colorado City Neighborhood and Homes, Colorado Springs (54557267980).jpg | Lumen Wilde | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Old_Colorado_City_Neighborhood_and_Homes,_Colorado_Springs_(54557267980).jpg
+occ-broadway.jpg | File:Colorado City Business District.JPG | ERoss99 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Colorado_City_Business_District.JPG
 woodland.jpg | File:Woodland Park, Colorado (48743542247).jpg | PEO ACWA | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Woodland_Park,_Colorado_(48743542247).jpg
-palmer_sunrise.jpg | File:2024-08-18 Palmer Park Sunrise 024.jpg | mark byzewski | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:2024-08-18_Palmer_Park_Sunrise_024.jpg
-palmer_sunrise2.jpg | File:2024-08-18 Palmer Park Sunrise 083.jpg | mark byzewski | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:2024-08-18_Palmer_Park_Sunrise_083.jpg
-falcon.jpg | File:Falcon, Colorado (14017129080).jpg | Ken Lund from Reno, Nevada, USA | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Falcon,_Colorado_(14017129080).jpg
-broadmoor.jpg | File:Broadmoor Hotel, Colorado Springs, CO.jpg | Barbara Keegan | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Broadmoor_Hotel,_Colorado_Springs,_CO.jpg
-gog_pikes2.jpg | File:Colorado-Springs Garden-of-the-Gods Pikes-Peak 2012-10-21.JPG | Milan Suvajac | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Colorado-Springs_Garden-of-the-Gods_Pikes-Peak_2012-10-21.JPG
-pikes_gog_wide.jpg | File:Pikes Peak and Garden of the Gods (25846068782).jpg | David Herrera from Albuquerque, NM, Bernalillo | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Pikes_Peak_and_Garden_of_the_Gods_(25846068782).jpg
+palmer-sunrise-2.jpg | File:2024-08-18 Palmer Park Sunrise 083.jpg | mark byzewski | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:2024-08-18_Palmer_Park_Sunrise_083.jpg
+gog-pikes2.jpg | File:Colorado-Springs Garden-of-the-Gods Pikes-Peak 2012-10-21.JPG | Milan Suvajac | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Colorado-Springs_Garden-of-the-Gods_Pikes-Peak_2012-10-21.JPG
+pikes-gog-wide.jpg | File:Pikes Peak and Garden of the Gods (25846068782).jpg | David Herrera from Albuquerque, NM, Bernalillo | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Pikes_Peak_and_Garden_of_the_Gods_(25846068782).jpg
